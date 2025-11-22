@@ -9,6 +9,8 @@ async function loadCats() {
     catImages.push(`https://cataas.com/cat?random=${Math.random()}`);
   }
   renderCards();
+  updateProgress();
+  document.getElementById("total").textContent = TOTAL_CATS;
 }
 
 function renderCards() {
@@ -101,6 +103,13 @@ function renderCards() {
   }
 }
 
+
+function updateProgress() {
+  document.getElementById("current").textContent = Math.min(
+    currentIndex + 1,
+    TOTAL_CATS
+);
+
 function showSummary() {
   document.getElementById("summary").classList.remove("hidden");
   document.getElementById("like-count").textContent = liked.length;
@@ -118,13 +127,5 @@ function showSummary() {
 // Initialize
 loadCats();
 
-// after loadCats
-document.getElementById("total").textContent = TOTAL_CATS;
-
-function updateProgress() {
-  document.getElementById("current").textContent = Math.min(
-    currentIndex + 1,
-    TOTAL_CATS
-  );
 }
 
