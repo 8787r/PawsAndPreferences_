@@ -121,8 +121,10 @@ loadCats();
 // after loadCats
 document.getElementById("total").textContent = TOTAL_CATS;
 
-function renderCards() {
-  // inside panend when swipe committed:
-  // after currentIndex++
-  document.getElementById("current").textContent = Math.min(currentIndex + 1, TOTAL_CATS);
+function updateProgress() {
+  document.getElementById("current").textContent = Math.min(
+    currentIndex + 1,
+    TOTAL_CATS
+  );
 }
+
