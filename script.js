@@ -33,7 +33,7 @@ function renderCards() {
 
     const dislikeLabel = document.createElement("div");
     dislikeLabel.className = "label dislike";
-    dislikeLabel.textContent = "NOPE";
+    dislikeLabel.textContent = "DISLIKE";
     card.appendChild(dislikeLabel);
 
     container.appendChild(card);
