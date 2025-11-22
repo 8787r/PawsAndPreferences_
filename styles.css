@@ -74,7 +74,7 @@ body {
 
 /* card container */
 #card-container {
-  position: relative;
+  position: relative; /* CRITICAL for absolute positioning of children */
   width: 100%;
   /* FIXED HEIGHT for absolute positioning stability */
   height: 460px; 
@@ -85,13 +85,13 @@ body {
 
 /* each card */
 .card {
-  position: absolute;
+  position: absolute; /* CRITICAL for stacking */
   width: 90%;
   /* FIXED HEIGHT for absolute positioning stability */
   height: 430px; 
   left: 50%;
   top: 0;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* CRITICAL for centering */
   border-radius: 16px;
   background: var(--card-bg);
   background-size: cover;
@@ -104,7 +104,7 @@ body {
   overflow: hidden;
 }
 
-/* STACKING FIX: Ensure these transforms are applied correctly */
+/* STACKING FIX: These rules create the visual depth */
 .card:nth-last-child(2){ transform: translateX(-50%) translateY(8px) scale(0.99); }
 .card:nth-last-child(3){ transform: translateX(-50%) translateY(16px) scale(0.98); }
 
@@ -181,9 +181,8 @@ body {
 .summary-actions{ margin-top:12px; }
 .summary-actions button{ padding:8px 14px; border-radius:8px; border:none; background:#444; color:white; cursor:pointer; }
 
-/* responsive tweaks */
+/* responsive tweaks (Adjusting fixed heights for smaller screens) */
 @media (max-width:420px){
-  /* Smaller fixed heights for mobile viewports */
   .card{ width:92%; height: 380px; } 
   #card-container{ height: 420px; }
   .action-btn{ width:56px; height:56px; }
